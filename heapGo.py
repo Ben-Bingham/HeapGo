@@ -70,7 +70,11 @@ while True:
             currentPlayer = swapPlayer(currentPlayer)
 
         case "score":
-            pass
+            if currentPlayer == 'b':
+                print("Black's score is:", blackScore)
+            else:
+                print("White's score is:", -blackScore)
+
         case "winner":
             pass
         
