@@ -16,8 +16,8 @@ currentPlayer -> The current player either 'w' or 'b'
 return -> The opposite of current player
 '''
 def swapPlayer(currentPlayer):
-    if (currentPlayer == 'w') return 'b'
-    if (currentPlayer == 'b') return 'w'
+    if (currentPlayer == 'w'): return 'b'
+    if (currentPlayer == 'b'): return 'w'
 
     print("ERROR: Invalid Current player")
     return '0'
