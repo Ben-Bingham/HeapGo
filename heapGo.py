@@ -1,4 +1,22 @@
 G = [ [('w', 9), ('b', 12), ('w', 5)],  [('b', 6), ('b', 9)] ]
+currentPlayer = 'b'
+
+'''
+g -> HeapGo Game
+n -> Heap Number
+
+return -> Game with move played
+'''
+def playHeap(g, n):
+    pass
+
+'''
+currentPlayer -> The current player either 'w' or 'b'
+
+return -> The opposite of current player
+'''
+def swapPlayer(currentPlayer):
+    pass
 
 print("Welcome to HeapGo")
 
@@ -10,9 +28,16 @@ while True:
     match command[0]:
         case "show":
             print(G)
-            
+
         case "play":
-            pass
+            heapNumber = int(command[1])
+            if (heapNumber < 1 or heapNumber > len(G)):
+                print("Invalid \"Heap Number\", command ignored")
+                continue
+            
+            G = playHeap(G, heapNumber)
+            currentPlayer = swapPlayer(currentPlayer)
+
         case "score":
             pass
         case "winner":
