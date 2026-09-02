@@ -44,18 +44,6 @@ def playHeap(g, n):
 
     return g
 
-'''
-currentPlayer -> The current player either 'w' or 'b'
-
-return -> The opposite of current player
-'''
-def swapPlayer(currentPlayer):
-    if (currentPlayer == 'w'): return 'b'
-    if (currentPlayer == 'b'): return 'w'
-
-    print("ERROR: Invalid Current player")
-    return '0'
-
 print("Welcome to HeapGo")
 
 while True:
@@ -74,7 +62,7 @@ while True:
                 continue
             
             G = playHeap(G, heapNumber - 1) # Convert from 1 based indexing to 0 based indexing
-            currentPlayer = swapPlayer(currentPlayer)
+            currentPlayer = oppositePlayer(currentPlayer)
 
         case "score":
             if currentPlayer == 'b':
