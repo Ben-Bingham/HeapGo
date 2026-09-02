@@ -9,7 +9,8 @@ while True:
 
     match command[0]:
         case "show":
-            pass
+            print(G)
+            
         case "play":
             pass
         case "score":
