@@ -5,4 +5,19 @@ print("Welcome to HeapGo")
 while True:
     print("Enter your command:")
     command = input()
-    print(command)
+    command = command.split()
+
+    match command[0]:
+        case "show":
+            pass
+        case "play":
+            pass
+        case "score":
+            pass
+        case "winner":
+            pass
+        
+        case "quit":
+            break
+        case _:
+            print("Unknown command:", command[0])
