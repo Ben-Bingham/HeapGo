@@ -2,6 +2,13 @@ G = [ [('w', 5), ('b', 12), ('w', 9)],  [('b', 9), ('b', 6)] ] # Token order is 
 currentPlayer = 'b'
 blackScore = 0 # Once komi is added, this should default to -komi
 
+def oppositePlayer(player):
+    if player == 'b': return 'w'
+    if player == 'w': return 'b'
+
+    print("Invalid player")
+    return '0'
+
 '''
 g -> HeapGo Game
 n -> Heap Number
@@ -10,12 +17,12 @@ return -> Game with move played
 '''
 def playHeap(g, n):
     takeAllofOwnColour = False
-    takeOneExtra = False
+    takeOneofOpponentColour = False
 
     newPoints = 0
 
     for i in range(0, len(g[n])):
-        if takeAllofOwnColour and takeOneExtra: break
+        if takeAllofOwnColour: break
 
         if len(g[n]) == 0: break
 
@@ -27,7 +34,7 @@ def playHeap(g, n):
                 takeAllofOwnColour = True
 
 
-    if len(g[n]) != 0 and not takeOneExtra:
+    if len(g[n]) != 0 and not takeOneofOpponentColour and g[n][0][0] == oppositePlayer(currentPlayer):
         newPoints += g[n][0][1]
         g[n].pop(0)
 
@@ -76,7 +83,16 @@ while True:
                 print("White's score is:", -blackScore)
 
         case "winner":
-            pass
+            atLeastOneHeapNotEmpty = False
+            for i in range(0, len(G)):
+                if len(G[i]) != 0: 
+                    atLeastOneHeapNotEmpty = True
+                    break
+            if atLeastOneHeapNotEmpty:
+                print("Game is not done")
+            else:
+                if blackScore > 0: print("Black Wins! with a score of:", blackScore)
+                else: print("White Wins! with a score of:", -blackScore)
         
         case "quit":
             break
